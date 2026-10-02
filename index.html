@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SportMatch | Temukan Partner Olahraga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <span class="logo">S</span>
+          <span>SportMatch</span>
+        </div>
+        <nav class="menu">
+          <a href="#features">Fitur</a>
+          <a href="#matches">Match</a>
+          <a href="#about">Tentang</a>
+        </nav>
+        <button class="btn btn-primary">Masuk</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="tag">#GetFitTogether</span>
+            <h1>Temukan partner olahraga yang cocok buat kamu.</h1>
+            <p>
+              Cari teman latihan, ikut event olahraga, atau ketemu soulmate
+              yang punya passion yang sama dalam bergerak sehat.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-primary">Mulai Match</button>
+              <button class="btn btn-secondary">Jelajahi</button>
+            </div>
+            <ul class="stats">
+              <li><strong>12k+</strong><span>Member aktif</span></li>
+              <li><strong>4.9/5</strong><span>Rating komunitas</span></li>
+              <li><strong>500+</strong><span>Event dibuat</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="profile-card main-card">
+              <div class="avatar avatar-1">AR</div>
+              <div>
+                <h3>Arya</h3>
+                <p>Running • Cycling</p>
+              </div>
+              <span class="match-badge">93% Match</span>
+            </div>
+
+            <div class="mini-card card-left">
+              <span>🏃‍♂️</span>
+              <div>
+                <strong>5K Run</strong>
+                <small>Sabtu, 07.00</small>
+              </div>
+            </div>
+
+            <div class="mini-card card-right">
+              <span>💪</span>
+              <div>
+                <strong>Gym Buddy</strong>
+                <small>Jalan sehat</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container">
+          <div class="section-title">
+            <span>Kenapa SportMatch?</span>
+            <h2>Semua yang kamu butuhkan untuk olahraga bareng.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="icon">🎯</div>
+              <h3>Match yang relevan</h3>
+              <p>Cocokkan minat olahraga, tingkat kebugaran, dan jadwal kamu.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">🧑‍🤝‍🧑</div>
+              <h3>Komunitas aktif</h3>
+              <p>Bertemu dengan orang yang punya semangat sama untuk bergerak.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">📍</div>
+              <h3>Event lokal</h3>
+              <p>Ikut latihan bersama, jogging, atau event olahraga di sekitar kamu.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="matches" class="matches">
+        <div class="container">
+          <div class="match-header">
+            <div>
+              <span class="section-kicker">Recommended</span>
+              <h2>Partner olahraga paling cocok untukmu</h2>
+            </div>
+            <button class="btn btn-primary">Lihat semua</button>
+          </div>
+
+          <div class="profile-grid" id="profileGrid">
+            <article class="person-card" data-sport="running" data-level="beginner">
+              <div class="person-top">
+                <div class="avatar avatar-2">NL</div>
+                <span class="online"></span>
+              </div>
+              <h3>Nadia</h3>
+              <p>Jogging, Yoga</p>
+              <div class="tags">
+                <span>Running</span>
+                <span>Beginner</span>
+              </div>
+              <button class="connect-btn">Connect</button>
+            </article>
+
+            <article class="person-card" data-sport="cycling" data-level="intermediate">
+              <div class="person-top">
+                <div class="avatar avatar-3">DF</div>
+                <span class="online"></span>
+              </div>
+              <h3>Daniel</h3>
+              <p>Cycling, Hike</p>
+              <div class="tags">
+                <span>Cycling</span>
+                <span>Intermediate</span>
+              </div>
+              <button class="connect-btn">Connect</button>
+            </article>
+
+            <article class="person-card" data-sport="basketball" data-level="advanced">
+              <div class="person-top">
+                <div class="avatar avatar-4">SA</div>
+                <span class="online"></span>
+              </div>
+              <h3>Salsa</h3>
+              <p>Basketball, Futsal</p>
+              <div class="tags">
+                <span>Basketball</span>
+                <span>Advanced</span>
+              </div>
+              <button class="connect-btn">Connect</button>
+            </article>
+
+            <article class="person-card" data-sport="swimming" data-level="intermediate">
+              <div class="person-top">
+                <div class="avatar avatar-5">RG</div>
+                <span class="online"></span>
+              </div>
+              <h3>Raka</h3>
+              <p>Swimming, Gym</p>
+              <div class="tags">
+                <span>Swimming</span>
+                <span>Intermediate</span>
+              </div>
+              <button class="connect-btn">Connect</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="cta">
+        <div class="container cta-box">
+          <div>
+            <span class="section-kicker">Bergabung sekarang</span>
+            <h2>Mulai hidup lebih sehat bersama orang-orang yang cocok buatmu.</h2>
+          </div>
+          <button class="btn btn-primary large">Gabung Gratis</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="brand footer-brand">
+          <span class="logo">S</span>
+          <span>SportMatch</span>
+        </div>
+        <p>© 2026 SportMatch. Built for stronger connections through movement.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
