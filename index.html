@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Navigation & Auth Modal -->
     <header class="topbar">
       <div class="container nav">
         <div class="brand">
@@ -19,13 +20,54 @@
         <nav class="menu">
           <a href="#features">Fitur</a>
           <a href="#matches">Match</a>
+          <a href="#events">Event</a>
           <a href="#about">Tentang</a>
         </nav>
-        <button class="btn btn-primary">Masuk</button>
+        <button class="btn btn-primary" id="loginBtn">Masuk</button>
       </div>
     </header>
 
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close-btn">&times;</button>
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-tab="login">Masuk</button>
+          <button class="tab-btn" data-tab="signup">Daftar</button>
+        </div>
+
+        <div id="login" class="tab-content active">
+          <h2>Selamat datang kembali</h2>
+          <form>
+            <input type="email" placeholder="Email kamu" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit" class="btn btn-primary full">Masuk</button>
+          </form>
+        </div>
+
+        <div id="signup" class="tab-content">
+          <h2>Mulai bersama kami</h2>
+          <form>
+            <input type="text" placeholder="Nama lengkap" required />
+            <input type="email" placeholder="Email kamu" required />
+            <input type="password" placeholder="Password" required />
+            <select required>
+              <option value="">Pilih olahraga favorit</option>
+              <option value="running">Running</option>
+              <option value="cycling">Cycling</option>
+              <option value="basketball">Basketball</option>
+              <option value="swimming">Swimming</option>
+              <option value="yoga">Yoga</option>
+              <option value="gym">Gym</option>
+            </select>
+            <button type="submit" class="btn btn-primary full">Daftar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <main>
+      <!-- Hero Section -->
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
@@ -36,8 +78,8 @@
               yang punya passion yang sama dalam bergerak sehat.
             </p>
             <div class="hero-actions">
-              <button class="btn btn-primary">Mulai Match</button>
-              <button class="btn btn-secondary">Jelajahi</button>
+              <button class="btn btn-primary" id="startMatchBtn">Mulai Match</button>
+              <button class="btn btn-secondary">Jelajahi Sekarang</button>
             </div>
             <ul class="stats">
               <li><strong>12k+</strong><span>Member aktif</span></li>
@@ -75,6 +117,7 @@
         </div>
       </section>
 
+      <!-- Features Section -->
       <section id="features" class="features">
         <div class="container">
           <div class="section-title">
@@ -86,22 +129,38 @@
             <article class="feature-card">
               <div class="icon">🎯</div>
               <h3>Match yang relevan</h3>
-              <p>Cocokkan minat olahraga, tingkat kebugaran, dan jadwal kamu.</p>
+              <p>Cocokkan minat olahraga, tingkat kebugaran, dan jadwal kamu dengan presisi AI.</p>
             </article>
             <article class="feature-card">
               <div class="icon">🧑‍🤝‍🧑</div>
               <h3>Komunitas aktif</h3>
-              <p>Bertemu dengan orang yang punya semangat sama untuk bergerak.</p>
+              <p>Bertemu dengan orang yang punya semangat sama untuk bergerak dan hidup sehat.</p>
             </article>
             <article class="feature-card">
               <div class="icon">📍</div>
               <h3>Event lokal</h3>
               <p>Ikut latihan bersama, jogging, atau event olahraga di sekitar kamu.</p>
             </article>
+            <article class="feature-card">
+              <div class="icon">💬</div>
+              <h3>Chat & Komunitas</h3>
+              <p>Chat langsung dengan match kamu dan bergabung dengan grup olahraga.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">📊</div>
+              <h3>Tracking Progress</h3>
+              <p>Pantau progress latihan dan capai target fitness bersama partner.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">🏆</div>
+              <h3>Kompetisi & Leaderboard</h3>
+              <p>Ikut challenge bulanan dan naik di leaderboard komunitas.</p>
+            </article>
           </div>
         </div>
       </section>
 
+      <!-- Matches Section -->
       <section id="matches" class="matches">
         <div class="container">
           <div class="match-header">
@@ -109,7 +168,15 @@
               <span class="section-kicker">Recommended</span>
               <h2>Partner olahraga paling cocok untukmu</h2>
             </div>
-            <button class="btn btn-primary">Lihat semua</button>
+            <div class="filter-group">
+              <select id="sportFilter" class="filter-select">
+                <option value="">Semua Olahraga</option>
+                <option value="running">Running</option>
+                <option value="cycling">Cycling</option>
+                <option value="basketball">Basketball</option>
+                <option value="swimming">Swimming</option>
+              </select>
+            </div>
           </div>
 
           <div class="profile-grid" id="profileGrid">
@@ -119,12 +186,17 @@
                 <span class="online"></span>
               </div>
               <h3>Nadia</h3>
+              <p class="location">📍 Jakarta Selatan</p>
               <p>Jogging, Yoga</p>
               <div class="tags">
                 <span>Running</span>
                 <span>Beginner</span>
               </div>
-              <button class="connect-btn">Connect</button>
+              <div class="card-actions">
+                <button class="action-btn dislike-btn">👎</button>
+                <button class="action-btn like-btn">❤️</button>
+                <button class="action-btn info-btn">ℹ️</button>
+              </div>
             </article>
 
             <article class="person-card" data-sport="cycling" data-level="intermediate">
@@ -133,12 +205,17 @@
                 <span class="online"></span>
               </div>
               <h3>Daniel</h3>
+              <p class="location">📍 Jakarta Barat</p>
               <p>Cycling, Hike</p>
               <div class="tags">
                 <span>Cycling</span>
                 <span>Intermediate</span>
               </div>
-              <button class="connect-btn">Connect</button>
+              <div class="card-actions">
+                <button class="action-btn dislike-btn">👎</button>
+                <button class="action-btn like-btn">❤️</button>
+                <button class="action-btn info-btn">ℹ️</button>
+              </div>
             </article>
 
             <article class="person-card" data-sport="basketball" data-level="advanced">
@@ -147,12 +224,17 @@
                 <span class="online"></span>
               </div>
               <h3>Salsa</h3>
+              <p class="location">📍 Jakarta Utara</p>
               <p>Basketball, Futsal</p>
               <div class="tags">
                 <span>Basketball</span>
                 <span>Advanced</span>
               </div>
-              <button class="connect-btn">Connect</button>
+              <div class="card-actions">
+                <button class="action-btn dislike-btn">👎</button>
+                <button class="action-btn like-btn">❤️</button>
+                <button class="action-btn info-btn">ℹ️</button>
+              </div>
             </article>
 
             <article class="person-card" data-sport="swimming" data-level="intermediate">
@@ -161,37 +243,251 @@
                 <span class="online"></span>
               </div>
               <h3>Raka</h3>
+              <p class="location">📍 Jakarta Pusat</p>
               <p>Swimming, Gym</p>
               <div class="tags">
                 <span>Swimming</span>
                 <span>Intermediate</span>
               </div>
-              <button class="connect-btn">Connect</button>
+              <div class="card-actions">
+                <button class="action-btn dislike-btn">👎</button>
+                <button class="action-btn like-btn">❤️</button>
+                <button class="action-btn info-btn">ℹ️</button>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
+      <!-- Events Section -->
+      <section id="events" class="events">
+        <div class="container">
+          <div class="section-title">
+            <span>Upcoming Events</span>
+            <h2>Event olahraga yang menarik bulan ini</h2>
+          </div>
+
+          <div class="events-grid">
+            <article class="event-card">
+              <div class="event-image">🏃</div>
+              <div class="event-content">
+                <span class="event-badge">Running</span>
+                <h3>5K Morning Run</h3>
+                <p>Jogging santai dengan komunitas di area BSD</p>
+                <div class="event-details">
+                  <span>📅 Sabtu, 14 Oktober</span>
+                  <span>⏰ 06:00 - 08:00</span>
+                </div>
+                <div class="event-footer">
+                  <span class="participants">👥 45 peserta</span>
+                  <button class="btn btn-small btn-primary">Join</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-image">🚴</div>
+              <div class="event-content">
+                <span class="event-badge">Cycling</span>
+                <h3>Weekend Cycling Tour</h3>
+                <p>Gowes santai keliling kawasan Tangerang</p>
+                <div class="event-details">
+                  <span>📅 Minggu, 15 Oktober</span>
+                  <span>⏰ 07:00 - 11:00</span>
+                </div>
+                <div class="event-footer">
+                  <span class="participants">👥 62 peserta</span>
+                  <button class="btn btn-small btn-primary">Join</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-image">🏀</div>
+              <div class="event-content">
+                <span class="event-badge">Basketball</span>
+                <h3>Futsal Friendly Match</h3>
+                <p>Pertandingan futsal seru untuk semua level</p>
+                <div class="event-details">
+                  <span>📅 Jumat, 20 Oktober</span>
+                  <span>⏰ 19:00 - 21:30</span>
+                </div>
+                <div class="event-footer">
+                  <span class="participants">👥 28 peserta</span>
+                  <button class="btn btn-small btn-primary">Join</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-image">🏊</div>
+              <div class="event-content">
+                <span class="event-badge">Swimming</span>
+                <h3>Swim Class untuk Pemula</h3>
+                <p>Kelas renang intensif bersama instruktur berpengalaman</p>
+                <div class="event-details">
+                  <span>📅 Selasa-Kamis, setiap minggu</span>
+                  <span>⏰ 18:00 - 19:30</span>
+                </div>
+                <div class="event-footer">
+                  <span class="participants">👥 18 peserta</span>
+                  <button class="btn btn-small btn-primary">Join</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <div class="container">
+          <div class="section-title">
+            <span>Cerita Mereka</span>
+            <h2>Apa kata member SportMatch?</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="testimonial-card">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Akhirnya ketemu partner olahraga yang komit! Kita jadi rutin jogging setiap pagi."</p>
+              <div class="testimonial-author">
+                <div class="avatar avatar-2">NL</div>
+                <div>
+                  <strong>Nadia Lestari</strong>
+                  <small>Running enthusiast</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"SportMatch membantu saya ketemu teman gowes baru. Komunitas yang supportif banget!"</p>
+              <div class="testimonial-author">
+                <div class="avatar avatar-3">DF</div>
+                <div>
+                  <strong>Daniel Firmansyah</strong>
+                  <small>Cycling lover</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Olahraga jadi lebih menyenangkan pas ada temen. Rekomendasi aplikasinya mantap!"</p>
+              <div class="testimonial-author">
+                <div class="avatar avatar-4">SA</div>
+                <div>
+                  <strong>Salsa Adriana</strong>
+                  <small>Basketball player</small>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
       <section id="about" class="cta">
         <div class="container cta-box">
           <div>
             <span class="section-kicker">Bergabung sekarang</span>
             <h2>Mulai hidup lebih sehat bersama orang-orang yang cocok buatmu.</h2>
           </div>
-          <button class="btn btn-primary large">Gabung Gratis</button>
+          <button class="btn btn-primary large" id="joinBtn">Gabung Gratis Sekarang</button>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-      <div class="container footer-inner">
-        <div class="brand footer-brand">
-          <span class="logo">S</span>
-          <span>SportMatch</span>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <div class="brand footer-brand">
+              <span class="logo">S</span>
+              <span>SportMatch</span>
+            </div>
+            <p>Temukan partner olahraga dan mulai gaya hidup sehat bersama.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Produk</h4>
+            <ul>
+              <li><a href="#">Fitur</a></li>
+              <li><a href="#">Komunitas</a></li>
+              <li><a href="#">Event</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Perusahaan</h4>
+            <ul>
+              <li><a href="#">Tentang</a></li>
+              <li><a href="#">Karir</a></li>
+              <li><a href="#">Media</a></li>
+              <li><a href="#">Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Security</a></li>
+            </ul>
+          </div>
         </div>
-        <p>© 2026 SportMatch. Built for stronger connections through movement.</p>
+        <div class="footer-bottom">
+          <p>© 2026 SportMatch. Built for stronger connections through movement.</p>
+        </div>
       </div>
     </footer>
+
+    <!-- Profile Detail Modal -->
+    <div id="profileModal" class="modal hidden">
+      <div class="modal-content profile-modal">
+        <button class="close-btn">&times;</button>
+        <div class="profile-detail">
+          <div class="profile-header">
+            <div class="avatar avatar-large avatar-2">NL</div>
+            <div class="profile-info">
+              <h2>Nadia Lestari</h2>
+              <p class="location">📍 Jakarta Selatan • 25 tahun</p>
+              <div class="profile-stats">
+                <span>⭐ 4.9/5</span>
+                <span>🏃 100+ runs</span>
+                <span>🎖️ 3 months</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="profile-section">
+            <h3>Tentang</h3>
+            <p>Profesional muda yang gemar olahraga pagi. Suka jogging santai dan yoga. Cari teman yang commit untuk routine olahraga mingguan.</p>
+          </div>
+
+          <div class="profile-section">
+            <h3>Olahraga</h3>
+            <div class="sports-list">
+              <span class="sport-badge">🏃 Running</span>
+              <span class="sport-badge">🧘 Yoga</span>
+              <span class="sport-badge">🚴 Cycling</span>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h3>Jadwal</h3>
+            <p>Senin-Jumat: Pagi (06:00-07:00)<br>Sabtu-Minggu: Fleksibel</p>
+          </div>
+
+          <div class="profile-actions">
+            <button class="btn btn-secondary">Tidak cocok</button>
+            <button class="btn btn-primary">Connect Sekarang</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
